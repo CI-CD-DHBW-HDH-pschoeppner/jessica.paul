@@ -1,7 +1,7 @@
 name: CI testing
 on:
   push:
-    branches: [ master, dev ]
+    branches: [ dev ]
   workflow_dispatch:
 
 env:

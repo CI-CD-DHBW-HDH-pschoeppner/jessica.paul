@@ -75,6 +75,5 @@
   form > input {
     width: 100%;
     font-size: 1.5rem;
-    background-color: aqua;
   }
 </style>

@@ -58,6 +58,7 @@
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    background-color: #1b062f;
   }
   progress {
     margin: 5px;

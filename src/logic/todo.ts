@@ -8,7 +8,12 @@ export class TodoItem {
 
 // this function must return a unique ID every time it is called
 export function generateID(): string {
-  return Math.random().toString(36).substr(2, 10);
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let result = "";
+  for (let i = 0; i < 10; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
 }
 
 // make sure, that

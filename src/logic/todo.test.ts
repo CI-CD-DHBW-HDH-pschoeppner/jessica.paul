@@ -56,11 +56,15 @@ describe("formatTodo", () => {
 });
 
 describe("generateColor", () => {
-  test("returns a string with three numbers between 50 and 150, separated by commas and enclosed in parentheses", () => {
-    const color1 = generateColor();
+  test("generates a rgb color, which rgb values are between 50 and 150", () => {
+    const color = generateColor();
     const regex =
       /^rgb\([5-9][0-9],|1[0-4][0-9],|150,\)\([5-9][0-9],|1[0-4][0-9],|150,\)\([5-9][0-9],|1[0-4][0-9],|150,\)$/;
-    expect(regex.test(color1)).toBe(true);
+    expect(regex.test(color)).toBe(true);
+  });
+
+  test("test that two random colors are generated ", () => {
+    const color1 = generateColor();
     const color2 = generateColor();
     expect(color1).not.toBe(color2);
   });

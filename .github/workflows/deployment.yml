@@ -1,4 +1,4 @@
-name: Deploy Docker image
+name: Deploy image
 
 on:
   push:
@@ -12,7 +12,8 @@ env:
 
 
 jobs:
-  build-test-and-push:
+  build-test-and-deploy:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -26,7 +27,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
 
       - name: Check formatting
         run: npm run format:check
@@ -43,3 +43,7 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist

@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 permissions:
-  packages: write
+  contents: write
 
 env:
   NODE_VERSION: 18.14.2

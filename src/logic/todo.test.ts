@@ -36,6 +36,15 @@ describe("validateTodo", () => {
     expect(validateTodo(todo, todos)).toBe(false);
   });
 
+  test("returns false if the todo is already in the todos array (case insensitive)", () => {
+    const todo = new TodoItem();
+    todo.value = "test";
+    const todos = [new TodoItem(), new TodoItem()];
+    todos[0].value = "foo";
+    todos[1].value = "TEST";
+    expect(validateTodo(todo, todos)).toBe(false);
+  });
+
   test("returns true if the todo is valid", () => {
     const todo = new TodoItem();
     todo.value = "test";
@@ -52,6 +61,14 @@ describe("formatTodo", () => {
     todo.value = "test";
     const formattedTodo = formatTodo(todo);
     expect(formattedTodo.value).toBe("Test");
+  });
+
+  test("formatted todo should have same done value and id", () => {
+    const todo = new TodoItem();
+    todo.value = "test";
+    const formattedTodo = formatTodo(todo);
+    expect(formattedTodo.id).toBe(todo.id);
+    expect(formattedTodo.done).toBe(todo.done);
   });
 });
 
